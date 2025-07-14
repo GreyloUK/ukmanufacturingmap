@@ -121,6 +121,17 @@ const UKMap: React.FC<UKMapProps> = ({
     );
   };
 
+  // Error handling for MapBox
+  if (!mapboxToken) {
+    return (
+      <div className={`relative ${className} flex items-center justify-center bg-gray-100 rounded-lg`}>
+        <div className="text-center p-8">
+          <p className="text-gray-600">Map unavailable - Missing MapBox token</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className={`relative ${className}`}>
       <Map
@@ -130,6 +141,9 @@ const UKMap: React.FC<UKMapProps> = ({
         mapStyle="mapbox://styles/mapbox/light-v11"
         mapboxAccessToken={mapboxToken}
         style={{ width: '100%', height: '100%', borderRadius: '0.5rem' }}
+        onError={(error) => {
+          console.warn('MapBox error:', error);
+        }}
       >
         {clusteredMarkers.map(renderMarker)}
         
