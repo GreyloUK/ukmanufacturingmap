@@ -9,7 +9,6 @@ import {
   getStatusColour 
 } from '../../utils/map-utils';
 import { formatNumber } from '../../utils/currency';
-import FallbackMap from './FallbackMap';
 
 interface UKMapProps {
   projects: UKProject[];
@@ -28,20 +27,8 @@ const UKMap: React.FC<UKMapProps> = ({
   const [hoveredProject, setHoveredProject] = useState<UKProject | null>(null);
   const mapRef = useRef<any>(null);
 
-  // Check for Mapbox token (Vite uses VITE_ prefix)
+  // Get Mapbox token (Vite uses VITE_ prefix)
   const mapboxToken = import.meta.env.VITE_MAPBOX_TOKEN;
-  
-  // If no token, use fallback map
-  if (!mapboxToken) {
-    return (
-      <FallbackMap
-        projects={projects}
-        selectedProject={selectedProject}
-        onProjectSelect={onProjectSelect}
-        className={className}
-      />
-    );
-  }
 
   const markers = projectsToMarkers(projects);
   const clusteredMarkers = clusterMarkers(markers, viewport.zoom);
