@@ -1,29 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 interface HeaderProps {
-  onSearch: (searchTerm: string) => void;
-  onFiltersToggle: () => void;
-  showFilters: boolean;
   projectCount: number;
   totalInvestment: number;
+  totalJobs: number;
   className?: string;
 }
 
 const Header: React.FC<HeaderProps> = ({
-  onSearch,
-  onFiltersToggle,
-  showFilters,
   projectCount,
   totalInvestment,
+  totalJobs,
   className = ''
 }) => {
-  const [searchTerm, setSearchTerm] = useState('');
-
-  const handleSearchSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    onSearch(searchTerm);
-  };
-
   const formatInvestment = (amount: number) => {
     if (amount >= 1_000_000_000) {
       return `£${(amount / 1_000_000_000).toFixed(1)}bn`;
@@ -34,118 +23,72 @@ const Header: React.FC<HeaderProps> = ({
     }
   };
 
+  const formatJobs = (jobs: number) => {
+    if (jobs >= 1000) {
+      return `${(jobs / 1000).toFixed(0)}k+`;
+    }
+    return jobs.toLocaleString('en-GB');
+  };
+
   return (
-    <header className={`bg-white shadow-sm border-b border-gray-200 ${className}`}>
+    <header className={`header-gradient shadow-xl border-b border-dark-700 ${className}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex flex-col lg:flex-row items-center justify-between py-6 lg:py-8 gap-6 lg:gap-8">
           {/* Logo and Title */}
-          <div className="flex items-center min-w-0">
-            <div className="flex-shrink-0">
-              <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">UK</span>
+          <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
+            <div className="flex items-center gap-4 mb-2">
+              <div className="w-12 h-12 rounded-full bg-gradient-to-r from-mint-500 to-mint-400 flex items-center justify-center shadow-lg">
+                <svg className="w-7 h-7 text-dark-900" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                </svg>
               </div>
-            </div>
-            <div className="ml-3 min-w-0">
-              <h1 className="text-lg sm:text-xl font-bold text-gray-900 truncate">
-                UK Manufacturing Megaprojects
-              </h1>
-              <p className="text-xs sm:text-sm text-gray-500 truncate">
-                Investments over £250 million
-              </p>
+              <div>
+                <h1 className="text-2xl lg:text-3xl font-extrabold text-white tracking-tight font-sans">
+                  UK MANUFACTURING
+                </h1>
+                <div className="text-xl lg:text-2xl font-bold text-gradient-mint font-sans">
+                  MEGA PROJECTS
+                </div>
+              </div>
             </div>
           </div>
 
           {/* Stats */}
-          <div className="hidden md:flex items-center space-x-8">
-            <div className="text-center">
-              <div className="text-2xl font-bold text-gray-900">
-                {projectCount}
+          <div className="flex flex-col sm:flex-row gap-6 lg:gap-8">
+            <div className="bg-dark-700/70 backdrop-blur-sm rounded-xl px-6 py-4 border border-mint-500/30 card-shadow">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-lg bg-mint-500/20 flex items-center justify-center">
+                  <svg className="w-5 h-5 text-mint-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                  </svg>
+                </div>
+                <div>
+                  <div className="text-2xl font-extrabold text-white">
+                    {formatInvestment(totalInvestment)}
+                  </div>
+                  <div className="text-sm font-semibold text-mint-400">
+                    Investment
+                  </div>
+                </div>
               </div>
-              <div className="text-sm text-gray-500">
-                Project{projectCount !== 1 ? 's' : ''}
+            </div>
+
+            <div className="bg-dark-700/70 backdrop-blur-sm rounded-xl px-6 py-4 border border-purple-500/30 card-shadow">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-lg bg-purple-500/20 flex items-center justify-center">
+                  <svg className="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <div className="text-2xl font-extrabold text-white">
+                    {formatJobs(totalJobs)}
+                  </div>
+                  <div className="text-sm font-semibold text-purple-400">
+                    New Jobs
+                  </div>
+                </div>
               </div>
-            </div>
-            <div className="text-center">
-              <div className="text-2xl font-bold text-gray-900">
-                {formatInvestment(totalInvestment)}
-              </div>
-              <div className="text-sm text-gray-500">
-                Total Investment
-              </div>
-            </div>
-          </div>
-
-          {/* Actions */}
-          <div className="flex items-center space-x-2 sm:space-x-4">
-            {/* Search */}
-            <form onSubmit={handleSearchSubmit} className="relative hidden sm:block">
-              <input
-                type="text"
-                placeholder="Search projects..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-48 lg:w-64 px-4 py-2 pl-10 pr-4 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              />
-              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                <svg className="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                </svg>
-              </div>
-            </form>
-
-            {/* Mobile Search Button */}
-            <button className="sm:hidden p-2 text-gray-700 hover:text-gray-900 hover:bg-gray-100 rounded-lg">
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-              </svg>
-            </button>
-
-            {/* Filter Toggle */}
-            <button
-              onClick={onFiltersToggle}
-              className={`inline-flex items-center px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
-                showFilters
-                  ? 'bg-blue-100 text-blue-700 hover:bg-blue-200'
-                  : 'text-gray-700 hover:text-gray-900 hover:bg-gray-100'
-              }`}
-            >
-              <svg className="w-5 h-5 sm:mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.207A1 1 0 013 6.5V4z" />
-              </svg>
-              <span className="hidden sm:inline">Filters</span>
-            </button>
-
-            {/* View Toggle */}
-            <div className="hidden sm:flex items-center bg-gray-100 rounded-lg p-1">
-              <button className="px-3 py-1 text-sm font-medium text-white bg-blue-600 rounded-md">
-                Map
-              </button>
-              <button className="px-3 py-1 text-sm font-medium text-gray-700 hover:text-gray-900">
-                List
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Mobile Stats */}
-      <div className="md:hidden px-4 py-3 bg-gray-50 border-t border-gray-200">
-        <div className="flex items-center justify-around text-center">
-          <div>
-            <div className="text-lg font-bold text-gray-900">
-              {projectCount}
-            </div>
-            <div className="text-xs text-gray-500">
-              Project{projectCount !== 1 ? 's' : ''}
-            </div>
-          </div>
-          <div className="h-8 w-px bg-gray-300"></div>
-          <div>
-            <div className="text-lg font-bold text-gray-900">
-              {formatInvestment(totalInvestment)}
-            </div>
-            <div className="text-xs text-gray-500">
-              Total Investment
             </div>
           </div>
         </div>

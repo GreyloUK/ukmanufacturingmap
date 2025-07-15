@@ -49,7 +49,7 @@ const ProjectFilters: React.FC<ProjectFiltersProps> = ({
   onFiltersChange,
   className = ''
 }) => {
-  const [isExpanded, setIsExpanded] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(true);
 
   const handleIndustryChange = (industry: string) => {
     const newIndustries = filters.industries.includes(industry)
@@ -117,26 +117,26 @@ const ProjectFilters: React.FC<ProjectFiltersProps> = ({
     (filters.searchTerm ? 1 : 0);
 
   return (
-    <div className={`bg-white rounded-xl shadow-lg ${className}`}>
-      <div className="p-6 border-b border-gray-200">
+    <div className={`bg-dark-700 rounded-xl shadow-lg ${className}`}>
+      <div className="p-6 border-b border-dark-600">
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
-              <svg className="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="w-8 h-8 bg-mint-500/20 rounded-lg flex items-center justify-center">
+              <svg className="w-4 h-4 text-mint-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.207A1 1 0 013 6.5V4z" />
               </svg>
             </div>
-            <h3 className="text-lg font-bold text-gray-900">Filters</h3>
+            <h3 className="text-lg font-bold text-white font-sans">Filters</h3>
           </div>
           <div className="flex items-center gap-2">
             {activeFiltersCount > 0 && (
-              <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+              <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-mint-500/20 text-mint-400 font-sans">
                 {activeFiltersCount} active
               </span>
             )}
             <button
               onClick={() => setIsExpanded(!isExpanded)}
-              className="p-2 rounded-lg hover:bg-gray-100 transition-colors"
+              className="p-2 rounded-lg hover:bg-dark-600 transition-colors"
             >
               <svg
                 className={`w-5 h-5 transition-transform duration-200 ${isExpanded ? 'rotate-180' : ''}`}
@@ -157,7 +157,12 @@ const ProjectFilters: React.FC<ProjectFiltersProps> = ({
             placeholder="Search projects, companies, locations..."
             value={filters.searchTerm}
             onChange={(e) => handleSearchChange(e.target.value)}
-            className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+            className="w-full pl-10 pr-4 py-3 border border-dark-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-mint-500 focus:border-mint-500 transition-colors bg-dark-600 text-white placeholder-gray-400 font-sans"
+            onKeyDown={(e) => {
+              if (e.key === 'Escape' && filters.searchTerm) {
+                handleSearchChange('');
+              }
+            }}
           />
           <svg className="absolute left-3 top-3.5 w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -167,7 +172,7 @@ const ProjectFilters: React.FC<ProjectFiltersProps> = ({
         {activeFiltersCount > 0 && (
           <button
             onClick={clearAllFilters}
-            className="mt-3 w-full px-4 py-2 text-sm text-blue-600 hover:text-blue-800 hover:bg-blue-50 rounded-lg transition-colors"
+            className="mt-3 w-full px-4 py-2 text-sm text-mint-400 hover:text-mint-300 hover:bg-mint-500/10 rounded-lg transition-colors font-sans"
           >
             Clear all filters
           </button>
@@ -179,12 +184,12 @@ const ProjectFilters: React.FC<ProjectFiltersProps> = ({
           {/* Industry Filter */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <svg className="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
               </svg>
-              <h4 className="font-semibold text-gray-900">Industry</h4>
+              <h4 className="font-semibold text-white font-sans">Industry</h4>
               {filters.industries.length > 0 && (
-                <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-mint-500/20 text-mint-400 font-sans">
                   {filters.industries.length}
                 </span>
               )}
@@ -196,9 +201,9 @@ const ProjectFilters: React.FC<ProjectFiltersProps> = ({
                     type="checkbox"
                     checked={filters.industries.includes(industry)}
                     onChange={() => handleIndustryChange(industry)}
-                    className="rounded border-gray-300 text-blue-600 focus:ring-blue-500 focus:ring-offset-0"
+                    className="rounded border-gray-500 text-mint-500 focus:ring-mint-500 focus:ring-offset-0 bg-dark-600"
                   />
-                  <span className="ml-3 text-sm text-gray-700 group-hover:text-gray-900">{industry}</span>
+                  <span className="ml-3 text-sm text-gray-300 group-hover:text-white font-sans">{industry}</span>
                 </label>
               ))}
             </div>
@@ -207,13 +212,13 @@ const ProjectFilters: React.FC<ProjectFiltersProps> = ({
           {/* Region Filter */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <svg className="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
               </svg>
-              <h4 className="font-semibold text-gray-900">Region</h4>
+              <h4 className="font-semibold text-white font-sans">Region</h4>
               {filters.regions.length > 0 && (
-                <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-mint-500/20 text-mint-400 font-sans">
                   {filters.regions.length}
                 </span>
               )}
@@ -225,9 +230,9 @@ const ProjectFilters: React.FC<ProjectFiltersProps> = ({
                     type="checkbox"
                     checked={filters.regions.includes(region)}
                     onChange={() => handleRegionChange(region)}
-                    className="rounded border-gray-300 text-blue-600 focus:ring-blue-500 focus:ring-offset-0"
+                    className="rounded border-gray-500 text-mint-500 focus:ring-mint-500 focus:ring-offset-0 bg-dark-600"
                   />
-                  <span className="ml-3 text-sm text-gray-700 group-hover:text-gray-900">{region}</span>
+                  <span className="ml-3 text-sm text-gray-300 group-hover:text-white font-sans">{region}</span>
                 </label>
               ))}
             </div>
@@ -236,10 +241,10 @@ const ProjectFilters: React.FC<ProjectFiltersProps> = ({
           {/* Investment Range Filter */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <svg className="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
               </svg>
-              <h4 className="font-semibold text-gray-900">Investment Size</h4>
+              <h4 className="font-semibold text-white font-sans">Investment Size</h4>
             </div>
             <select
               value={`${filters.investmentRange.min}-${filters.investmentRange.max}`}
@@ -247,7 +252,7 @@ const ProjectFilters: React.FC<ProjectFiltersProps> = ({
                 const [min, max] = e.target.value.split('-').map(Number);
                 handleInvestmentRangeChange({ min, max });
               }}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+              className="w-full px-4 py-3 border border-dark-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-mint-500 focus:border-mint-500 transition-colors bg-dark-600 text-white font-sans"
             >
               {INVESTMENT_RANGES.map(range => (
                 <option key={range.label} value={`${range.min}-${range.max}`}>
@@ -260,12 +265,12 @@ const ProjectFilters: React.FC<ProjectFiltersProps> = ({
           {/* Status Filter */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <svg className="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
-              <h4 className="font-semibold text-gray-900">Status</h4>
+              <h4 className="font-semibold text-white font-sans">Status</h4>
               {filters.status.length > 0 && (
-                <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-mint-500/20 text-mint-400 font-sans">
                   {filters.status.length}
                 </span>
               )}
@@ -277,9 +282,9 @@ const ProjectFilters: React.FC<ProjectFiltersProps> = ({
                     type="checkbox"
                     checked={filters.status.includes(status)}
                     onChange={() => handleStatusChange(status)}
-                    className="rounded border-gray-300 text-blue-600 focus:ring-blue-500 focus:ring-offset-0"
+                    className="rounded border-gray-500 text-mint-500 focus:ring-mint-500 focus:ring-offset-0 bg-dark-600"
                   />
-                  <span className="ml-3 text-sm text-gray-700 group-hover:text-gray-900">{status}</span>
+                  <span className="ml-3 text-sm text-gray-300 group-hover:text-white font-sans">{status}</span>
                 </label>
               ))}
             </div>

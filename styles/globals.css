@@ -5,11 +5,11 @@
 /* Global styles */
 @layer base {
   html {
-    @apply scroll-smooth;
+    @apply scroll-smooth bg-dark-900;
   }
   
   body {
-    @apply text-gray-900 antialiased;
+    @apply text-white antialiased bg-dark-900 font-medium font-sans;
   }
 }
 
@@ -17,20 +17,20 @@
 @layer components {
   /* Map popup styles */
   .map-popup .mapboxgl-popup-content {
-    @apply rounded-lg shadow-lg border-0 p-0;
+    @apply rounded-lg shadow-lg border-0 p-0 bg-dark-700;
   }
   
   .map-popup .mapboxgl-popup-tip {
-    @apply border-t-white;
+    @apply border-t-dark-700;
   }
   
   /* Project card hover animations */
   .project-card {
-    @apply transition-all duration-200 ease-in-out;
+    @apply transition-all duration-300 ease-in-out bg-dark-700 hover:bg-dark-600;
   }
   
   .project-card:hover {
-    @apply transform -translate-y-1 shadow-lg;
+    @apply transform -translate-y-1 shadow-lg shadow-mint-500/10;
   }
   
   /* Map marker animations */
@@ -49,77 +49,95 @@
   
   /* Search input focus styles */
   .search-input:focus {
-    @apply ring-2 ring-blue-500 border-blue-500;
+    @apply ring-2 ring-mint-500 border-mint-500;
   }
   
-  /* Status badge styles */
+  /* Status badge styles with new color scheme */
   .status-badge {
-    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold;
   }
   
   .status-badge.announced {
-    @apply bg-blue-100 text-blue-800;
+    @apply bg-purple-500/20 text-purple-400 border border-purple-500/30;
   }
   
   .status-badge.planning {
-    @apply bg-yellow-100 text-yellow-800;
+    @apply bg-yellow-500/20 text-yellow-400 border border-yellow-500/30;
   }
   
   .status-badge.construction {
-    @apply bg-green-100 text-green-800;
+    @apply bg-mint-500/20 text-mint-400 border border-mint-500/30;
   }
   
   .status-badge.operational {
-    @apply bg-emerald-100 text-emerald-800;
+    @apply bg-emerald-500/20 text-emerald-400 border border-emerald-500/30;
   }
   
   .status-badge.cancelled {
-    @apply bg-red-100 text-red-800;
+    @apply bg-red-500/20 text-red-400 border border-red-500/30;
   }
   
   .status-badge.delayed {
-    @apply bg-orange-100 text-orange-800;
+    @apply bg-orange-500/20 text-orange-400 border border-orange-500/30;
   }
   
   /* Loading animations */
   .loading-spinner {
-    @apply animate-spin;
+    @apply animate-spin text-mint-500;
   }
   
   /* Tooltip styles */
   .tooltip {
-    @apply absolute z-10 px-3 py-2 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 transition-opacity duration-300;
+    @apply absolute z-10 px-3 py-2 text-sm font-medium text-white bg-dark-600 rounded-lg shadow-lg opacity-0 transition-opacity duration-300 border border-dark-600;
   }
   
   .tooltip.show {
     @apply opacity-100;
   }
   
-  /* Button hover effects */
+  /* Button styles with new color scheme */
   .btn-primary {
-    @apply bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md transition-colours duration-200;
+    @apply bg-mint-500 hover:bg-mint-600 text-dark-900 font-semibold py-3 px-6 rounded-lg transition-all duration-200 shadow-lg hover:shadow-mint-500/25;
   }
   
   .btn-secondary {
-    @apply bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-2 px-4 rounded-md transition-colours duration-200;
+    @apply bg-dark-600 hover:bg-dark-500 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 border border-dark-500 hover:border-mint-500/50;
   }
   
-  /* Card shadows */
+  .btn-accent {
+    @apply bg-purple-500 hover:bg-purple-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 shadow-lg hover:shadow-purple-500/25;
+  }
+  
+  /* Card shadows with glowing effects */
   .card-shadow {
-    @apply shadow-sm hover:shadow-md transition-shadow duration-200;
+    @apply shadow-lg shadow-black/20 hover:shadow-xl hover:shadow-mint-500/10 transition-all duration-300;
   }
   
-  /* Industry colour indicators */
-  .industry-semiconductor { @apply bg-blue-600; }
-  .industry-automotive { @apply bg-green-600; }
-  .industry-battery { @apply bg-yellow-600; }
-  .industry-renewable-energy { @apply bg-emerald-600; }
-  .industry-metals { @apply bg-gray-600; }
+  .card-glow {
+    @apply shadow-lg shadow-mint-500/20 border border-mint-500/30;
+  }
+  
+  /* Industry colour indicators with new palette */
+  .industry-semiconductor { @apply bg-purple-500; }
+  .industry-automotive { @apply bg-mint-500; }
+  .industry-battery { @apply bg-yellow-500; }
+  .industry-renewable-energy { @apply bg-emerald-500; }
+  .industry-metals { @apply bg-gray-500; }
   .industry-aerospace { @apply bg-purple-600; }
-  .industry-pharmaceuticals { @apply bg-red-600; }
-  .industry-food-beverage { @apply bg-orange-600; }
-  .industry-textiles { @apply bg-pink-600; }
-  .industry-other { @apply bg-gray-600; }
+  .industry-pharmaceuticals { @apply bg-red-500; }
+  .industry-food-beverage { @apply bg-orange-500; }
+  .industry-textiles { @apply bg-pink-500; }
+  .industry-other { @apply bg-gray-500; }
+  
+  /* Header styles */
+  .header-gradient {
+    @apply bg-gradient-to-r from-dark-800 via-dark-700 to-dark-800;
+  }
+  
+  /* Input styles */
+  .input-dark {
+    @apply bg-dark-600 border border-dark-500 text-white placeholder-gray-400 focus:ring-2 focus:ring-mint-500 focus:border-mint-500 rounded-lg;
+  }
 }
 
 /* Utilities */
@@ -149,34 +167,44 @@
     scroll-behavior: smooth;
   }
   
-  /* Focus visible for accessibility */
+  /* Focus visible for accessibility with new color */
   .focus-visible {
-    @apply focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
+    @apply focus:outline-none focus:ring-2 focus:ring-mint-500 focus:ring-offset-2 focus:ring-offset-dark-800;
+  }
+  
+  /* Text gradient utilities */
+  .text-gradient-mint {
+    @apply bg-gradient-to-r from-mint-400 to-mint-600 bg-clip-text text-transparent;
+  }
+  
+  .text-gradient-purple {
+    @apply bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent;
   }
 }
 
-/* Custom scrollbar */
+/* Custom scrollbar with dark theme */
 .custom-scrollbar::-webkit-scrollbar {
   width: 6px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #2a3441;
   border-radius: 3px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: #c1c1c1;
+  background: #7af6c1;
   border-radius: 3px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: #a8a8a8;
+  background: #62d4a3;
 }
 
 /* Map container styles */
 .mapboxgl-map {
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
+  border: 1px solid #3a4451;
 }
 
 .mapboxgl-popup {
@@ -198,7 +226,7 @@
   }
 }
 
-/* Print styles */
+/* Print styles - adjust for dark theme */
 @media print {
   .no-print {
     @apply hidden;
@@ -210,5 +238,10 @@
   
   .project-card {
     @apply break-inside-avoid;
+  }
+  
+  /* Override dark theme for printing */
+  body {
+    @apply bg-white text-black;
   }
 }

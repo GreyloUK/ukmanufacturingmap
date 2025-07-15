@@ -22,20 +22,29 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 
   return (
     <div
-      className={`bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow border-l-4 cursor-pointer group ${
-        isSelected ? 'ring-2 ring-blue-400 shadow-lg' : ''
-      } ${className}`}
+      className={`bg-dark-700 rounded-lg shadow-md hover:shadow-lg transition-shadow border-l-4 cursor-pointer group ${
+        isSelected ? 'ring-2 ring-mint-400 shadow-lg' : ''
+      } ${className} project-card`}
       style={{ borderLeftColor: industryColour }}
       onClick={onClick}
+      role="button"
+      tabIndex={0}
+      aria-label={`View details for ${project.projectName} by ${project.companyName}`}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          onClick?.();
+        }
+      }}
     >
       <div className="p-6">
         {/* Header */}
         <div className="flex items-start justify-between mb-4">
           <div className="flex-1">
-            <h3 className="text-lg font-semibold text-gray-900 group-hover:text-blue-600 transition-colours">
+            <h3 className="text-lg font-semibold text-white group-hover:text-mint-400 transition-colors font-sans">
               {project.projectName}
             </h3>
-            <p className="text-gray-600 text-sm mt-1">
+            <p className="text-gray-300 text-sm mt-1 font-sans">
               {project.companyName}
             </p>
           </div>
@@ -43,10 +52,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             <span
               className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium text-white"
               style={{ backgroundColor: statusColour }}
+              aria-label={`Project status: ${project.status}`}
             >
               {project.status}
             </span>
-            <span className="text-xs text-gray-500 mt-1">
+            <span className="text-xs text-gray-400 mt-1 font-sans">
               {project.industry.category}
             </span>
           </div>
@@ -55,14 +65,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         {/* Key metrics */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
           <div>
-            <p className="text-sm text-gray-500">Investment</p>
-            <p className="text-xl font-bold text-gray-900">
+            <p className="text-sm text-gray-400 font-sans">Investment</p>
+            <p className="text-xl font-bold text-white font-sans">
               {project.investment.displayAmount}
             </p>
           </div>
           <div>
-            <p className="text-sm text-gray-500">Jobs Created</p>
-            <p className="text-xl font-bold text-gray-900">
+            <p className="text-sm text-gray-400 font-sans">Jobs Created</p>
+            <p className="text-xl font-bold text-white font-sans">
               {formatNumber(project.employment.jobsCreated)}
             </p>
           </div>
@@ -71,21 +81,21 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         {/* Location and timeline */}
         <div className="space-y-2 text-sm">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
-            <span className="text-gray-500">Location:</span>
-            <span className="text-gray-900 font-medium">
+            <span className="text-gray-400 font-sans">Location:</span>
+            <span className="text-white font-medium font-sans">
               {project.location.city}, {project.location.region}
             </span>
           </div>
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
-            <span className="text-gray-500">Timeline:</span>
-            <span className="text-gray-900 font-medium">
+            <span className="text-gray-400 font-sans">Timeline:</span>
+            <span className="text-white font-medium font-sans">
               {formatDateShort(project.timeline.startDate)} - {formatDateShort(project.timeline.expectedCompletionDate)}
             </span>
           </div>
           {project.employment.jobsRetained && project.employment.jobsRetained > 0 && (
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
-              <span className="text-gray-500">Jobs Retained:</span>
-              <span className="text-gray-900 font-medium">
+              <span className="text-gray-400 font-sans">Jobs Retained:</span>
+              <span className="text-white font-medium font-sans">
                 {formatNumber(project.employment.jobsRetained)}
               </span>
             </div>
@@ -94,17 +104,17 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 
         {/* Government support */}
         {project.governmentSupport && (
-          <div className="mt-4 p-3 bg-blue-50 rounded-lg">
+          <div className="mt-4 p-3 bg-purple-500/20 rounded-lg border border-purple-500/30">
             <div className="flex items-center gap-2 mb-1">
-              <div className="w-4 h-4 bg-blue-600 rounded-full"></div>
-              <span className="text-sm font-medium text-blue-900">
+              <div className="w-4 h-4 bg-purple-500 rounded-full"></div>
+              <span className="text-sm font-medium text-purple-300 font-sans">
                 Government Support
               </span>
             </div>
-            <p className="text-sm text-blue-800">
+            <p className="text-sm text-purple-200 font-sans">
               {project.governmentSupport.amount && formatCurrency(project.governmentSupport.amount)} {project.governmentSupport.type}
             </p>
-            <p className="text-xs text-blue-700 mt-1">
+            <p className="text-xs text-purple-200 mt-1 font-sans">
               {project.governmentSupport.description}
             </p>
           </div>
@@ -112,14 +122,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 
         {/* Description */}
         <div className="mt-4">
-          <p className="text-sm text-gray-600 line-clamp-3">
+          <p className="text-sm text-gray-300 line-clamp-3 font-sans">
             {project.description}
           </p>
         </div>
 
         {/* Footer with source info */}
-        <div className="mt-4 pt-4 border-t border-gray-200">
-          <div className="flex items-center justify-between text-xs text-gray-500">
+        <div className="mt-4 pt-4 border-t border-dark-600">
+          <div className="flex items-center justify-between text-xs text-gray-400 font-sans">
             <span>
               Announced {formatDateShort(project.timeline.announcementDate)}
             </span>
