@@ -17,7 +17,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   isSelected = false,
   className = ''
 }) => {
-  const industryColour = getIndustryColour(project.industry.category);
   const statusColour = getStatusColour(project.status);
 
   return (

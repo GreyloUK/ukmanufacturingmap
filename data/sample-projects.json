@@ -6,6 +6,7 @@
     "location": {
       "city": "Newport",
       "region": "Wales",
+      "postcode": "NP19 4QZ",
       "coordinates": { "latitude": 51.5842, "longitude": -2.9879 }
     },
     "investment": { "amount": 250000000, "currency": "GBP", "displayAmount": "£250m" },
@@ -34,7 +35,8 @@
     "projectName": "Sunderland EV Model Production (EV36Zero Hub)",
     "location": {
       "city": "Sunderland",
-      "region": "Tyne and Wear",
+      "region": "England",
+      "postcode": "SR5 3NS",
       "coordinates": { "latitude": 54.9069, "longitude": -1.3838 }
     },
     "investment": { "amount": 423000000, "currency": "GBP", "displayAmount": "£423m" },
@@ -64,7 +66,8 @@
     "projectName": "Somerset EV Battery Gigafactory (40 GWh)",
     "location": {
       "city": "Bridgwater",
-      "region": "Somerset",
+      "region": "England",
+      "postcode": "TA6 4AG",
       "coordinates": { "latitude": 51.1284, "longitude": -3.0036 }
     },
     "investment": { "amount": 4000000000, "currency": "GBP", "displayAmount": "£4bn" },
@@ -94,7 +97,8 @@
     "projectName": "Coventry Airport Battery Gigafactory",
     "location": {
       "city": "Coventry",
-      "region": "West Midlands",
+      "region": "England",
+      "postcode": "CV3 4AD",
       "coordinates": { "latitude": 52.3690, "longitude": -1.4797 }
     },
     "investment": { "amount": 2500000000, "currency": "GBP", "displayAmount": "£2.5bn" },
@@ -125,6 +129,7 @@
     "location": {
       "city": "Port Talbot",
       "region": "Wales",
+      "postcode": "SA13 2NG",
       "coordinates": { "latitude": 51.5893, "longitude": -3.7827 }
     },
     "investment": { "amount": 1250000000, "currency": "GBP", "displayAmount": "£1.25bn" },
@@ -154,7 +159,8 @@
     "projectName": "Billingham Biopharmaceutical Campus Expansion",
     "location": {
       "city": "Billingham",
-      "region": "Teesside",
+      "region": "England",
+      "postcode": "TS23 4BX",
       "coordinates": { "latitude": 54.6139, "longitude": -1.2669 }
     },
     "investment": { "amount": 400000000, "currency": "GBP", "displayAmount": "£400m" },
@@ -183,7 +189,8 @@
     "projectName": "Teesside Monopile Manufacturing Facility",
     "location": {
       "city": "Redcar",
-      "region": "Teesside",
+      "region": "England",
+      "postcode": "TS10 5QW",
       "coordinates": { "latitude": 54.5760, "longitude": -1.1110 }
     },
     "investment": { "amount": 900000000, "currency": "GBP", "displayAmount": "£900m" },
@@ -212,7 +219,8 @@
     "projectName": "Teesside Lithium Refinery (PD Ports)",
     "location": {
       "city": "Middlesbrough",
-      "region": "Teesside",
+      "region": "England",
+      "postcode": "TS2 1DY",
       "coordinates": { "latitude": 54.5766, "longitude": -1.1622 }
     },
     "investment": { "amount": 600000000, "currency": "GBP", "displayAmount": "£600m" },
@@ -242,7 +250,8 @@
     "projectName": "UK mRNA Vaccine Centre (Harwell)",
     "location": {
       "city": "Didcot",
-      "region": "Oxfordshire",
+      "region": "England",
+      "postcode": "OX11 0QX",
       "coordinates": { "latitude": 51.5728, "longitude": -1.3101 }
     },
     "investment": { "amount": 1000000000, "currency": "GBP", "displayAmount": "£1bn" },
@@ -271,7 +280,8 @@
     "projectName": "H2H Saltend Blue Hydrogen Project",
     "location": {
       "city": "Hull",
-      "region": "East Yorkshire",
+      "region": "England",
+      "postcode": "HU8 7DS",
       "coordinates": { "latitude": 53.7445, "longitude": -0.2708 }
     },
     "investment": { "amount": 1000000000, "currency": "GBP", "displayAmount": "£1bn" },
@@ -300,7 +310,8 @@
     "projectName": "Goole Tissue‑Paper Future Mill",
     "location": {
       "city": "Goole",
-      "region": "East Riding of Yorkshire",
+      "region": "England",
+      "postcode": "DN14 5GG",
       "coordinates": { "latitude": 53.7064, "longitude": -0.8739 }
     },
     "investment": { "amount": 350000000, "currency": "GBP", "displayAmount": "£350m" },
@@ -333,7 +344,8 @@
     "projectName": "Hunterston HVDC Subsea Cable Factory",
     "location": {
       "city": "Hunterston",
-      "region": "North Ayrshire",
+      "region": "Scotland",
+      "postcode": "KA23 9QS",
       "coordinates": { "latitude": 55.7262, "longitude": -4.8629 }
     },
     "investment": { "amount": 1400000000, "currency": "GBP", "displayAmount": "£1.4bn" },
@@ -371,7 +383,8 @@
     "projectName": "Sunderland Gigafactory – Phase 2 (15.8 GWh)",
     "location": {
       "city": "Sunderland",
-      "region": "Tyne and Wear",
+      "region": "England",
+      "postcode": "SR5 3NS",
       "coordinates": { "latitude": 54.9140, "longitude": -1.3690 }
     },
     "investment": { "amount": 1036000000, "currency": "GBP", "displayAmount": "£1.04bn" },
@@ -409,7 +422,8 @@
     "projectName": "Goodwood EV & Bespoke Facility Expansion",
     "location": {
       "city": "Goodwood (Chichester)",
-      "region": "West Sussex",
+      "region": "England",
+      "postcode": "PO18 0PH",
       "coordinates": { "latitude": 50.8611, "longitude": -0.7592 }
     },
     "investment": { "amount": 300000000, "currency": "GBP", "displayAmount": "£300m+" },
@@ -442,7 +456,8 @@
     "projectName": "Telford Large‑Calibre Gun Hall",
     "location": {
       "city": "Telford",
-      "region": "Shropshire",
+      "region": "England",
+      "postcode": "TF3 3AF",
       "coordinates": { "latitude": 52.6950, "longitude": -2.5110 }
     },
     "investment": { "amount": 400000000, "currency": "GBP", "displayAmount": "£400m" },
