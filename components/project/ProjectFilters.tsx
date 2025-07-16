@@ -8,36 +8,57 @@ interface ProjectFiltersProps {
 }
 
 const INDUSTRY_OPTIONS = [
-  'Semiconductor',
   'Automotive',
-  'Battery',
-  'Renewable Energy',
+  'Batteries',
+  'Chemicals',
+  'Defence Manufacturing',
+  'Energy',
   'Metals',
-  'Aerospace',
+  'Paper & Packaging',
   'Pharmaceuticals',
-  'Food & Beverage',
-  'Textiles',
-  'Other'
+  'Renewable Energy',
+  'Semiconductors'
 ];
 
 const REGION_OPTIONS = [
-  'England',
+  'East Midlands',
+  'North East',
+  'North West', 
   'Scotland',
+  'South East',
+  'South West',
   'Wales',
-  'Northern Ireland'
+  'West Midlands',
+  'Yorkshire and the Humber'
 ];
 
+// Mapping from specific regions in data to UK regions
+export const REGION_MAPPING: Record<string, string> = {
+  'Tyne and Wear': 'North East',
+  'Teesside': 'North East',
+  'East Yorkshire': 'Yorkshire and the Humber',
+  'East Riding of Yorkshire': 'Yorkshire and the Humber',
+  'West Midlands': 'West Midlands',
+  'Somerset': 'South West',
+  'Oxfordshire': 'South East',
+  'West Sussex': 'South East',
+  'Shropshire': 'West Midlands',
+  'North Ayrshire': 'Scotland',
+  'Wales': 'Wales'
+};
+
 const STATUS_OPTIONS = [
-  'Announced',
-  'Planning',
+  'Commissioning',
   'Construction',
   'Operational',
-  'Cancelled',
-  'Delayed'
+  'Planned',
+  'Planning'
 ];
 
 const INVESTMENT_RANGES = [
   { label: 'All investments', min: 0, max: Infinity },
+  { label: 'Under £50m', min: 0, max: 50000000 },
+  { label: '£50m - £250m', min: 50000000, max: 250000000 },
   { label: '£250m - £500m', min: 250000000, max: 500000000 },
   { label: '£500m - £1bn', min: 500000000, max: 1000000000 },
   { label: '£1bn - £2bn', min: 1000000000, max: 2000000000 },

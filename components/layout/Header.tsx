@@ -51,6 +51,9 @@ const Header: React.FC<HeaderProps> = ({
                 </div>
               </div>
             </div>
+            <p className="text-sm lg:text-base text-gray-300 font-medium mt-1">
+              Manufacturing Project Investments &gt; £250m
+            </p>
           </div>
 
           {/* Stats */}

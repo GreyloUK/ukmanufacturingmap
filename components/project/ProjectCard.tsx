@@ -25,7 +25,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       className={`bg-dark-700 rounded-lg shadow-md hover:shadow-lg transition-shadow border-l-4 cursor-pointer group ${
         isSelected ? 'ring-2 ring-mint-400 shadow-lg' : ''
       } ${className} project-card`}
-      style={{ borderLeftColor: industryColour }}
+      style={{ borderLeftColor: statusColour }}
       onClick={onClick}
       role="button"
       tabIndex={0}

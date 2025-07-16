@@ -1,237 +1,472 @@
 [
   {
-    "id": "1",
-    "companyName": "Britishvolt",
-    "projectName": "Gigafactory Blyth",
+    "id": "6",
+    "companyName": "Vishay Intertechnology",
+    "projectName": "Newport Compound Semiconductor Fab Expansion",
     "location": {
-      "city": "Blyth",
-      "region": "England",
-      "postcode": "NE24 1LZ",
-      "coordinates": {
-        "latitude": 55.1278,
-        "longitude": -1.5117
-      }
+      "city": "Newport",
+      "region": "Wales",
+      "coordinates": { "latitude": 51.5842, "longitude": -2.9879 }
     },
-    "investment": {
-      "amount": 2600000000,
-      "currency": "GBP",
-      "displayAmount": "£2.6bn"
-    },
-    "industry": {
-      "category": "Battery",
-      "subcategory": "Lithium-ion Battery Production"
-    },
+    "investment": { "amount": 250000000, "currency": "GBP", "displayAmount": "£250m" },
+    "industry": { "category": "Semiconductors", "subcategory": "Silicon Carbide Chips" },
     "timeline": {
-      "announcementDate": "2021-07-15",
-      "startDate": "2022-01-01",
-      "expectedCompletionDate": "2025-12-31"
+      "announcementDate": "2025-03-27",
+      "startDate": "2025-01-01",
+      "expectedCompletionDate": "2030-01-01"
     },
-    "employment": {
-      "jobsCreated": 3000,
-      "jobsRetained": 0,
-      "jobTypes": ["Manufacturing", "Engineering", "Quality Control"]
-    },
-    "status": "Delayed",
+    "employment": { "jobsCreated": 500, "jobsRetained": 0, "jobTypes": ["Semiconductor Engineering","Manufacturing"] },
+    "status": "Planned",
     "sources": [
       {
-        "url": "https://www.gov.uk/government/news/britishvolt-gigafactory",
-        "title": "Britishvolt Gigafactory Investment",
-        "date": "2021-07-15",
+        "url": "https://www.semiconductor-today.com/news_items/2025/mar/vishay-newport-270325.shtml",
+        "title": "UK welcomes Vishay's £250 m investment in Newport Wafer Fab",
+        "date": "2025-03-27",
+        "type": "Media"
+      }
+    ],
+    "description": "Advanced semiconductor facility will produce 200 mm silicon carbide power devices for EV and renewable energy applications at scale; £250 m expansion breaks ground Q4 2025.",
+    "images": []
+  },
+  {
+    "id": "9",
+    "companyName": "Nissan Motor Co.",
+    "projectName": "Sunderland EV Model Production (EV36Zero Hub)",
+    "location": {
+      "city": "Sunderland",
+      "region": "Tyne and Wear",
+      "coordinates": { "latitude": 54.9069, "longitude": -1.3838 }
+    },
+    "investment": { "amount": 423000000, "currency": "GBP", "displayAmount": "£423m" },
+    "industry": { "category": "Automotive", "subcategory": "Electric Vehicles" },
+    "timeline": {
+      "announcementDate": "2021-07-01",
+      "startDate": "2021-07-01",
+      "expectedCompletionDate": "2026-12-31"
+    },
+    "employment": { "jobsCreated": 900, "jobsRetained": 5000, "jobTypes": ["Manufacturing","Assembly","Engineering"] },
+    "status": "Construction",
+    "sources": [
+      {
+        "url": "https://europe.nissannews.com/en-GB/releases/three-is-the-magic-number-as-nissan-accelerates-the-switch-to-full-electric",
+        "title": "Nissan unveils next‑gen LEAF to be built in Sunderland",
+        "date": "2025-06-18",
+        "type": "Company"
+      }
+    ],
+    "governmentSupport": { "amount": 15000000, "type": "Grant", "description": "£15m UK government funding for £30m collaborative project led by Nissan" },
+    "description": "£423 m retooling will produce 100,000+ third‑gen LEAF and e‑POWER crossover vehicles annually for European markets; production ramp‑up confirmed for 2026.",
+    "images": []
+  },
+  {
+    "id": "10",
+    "companyName": "Tata Group (Agratas)",
+    "projectName": "Somerset EV Battery Gigafactory (40 GWh)",
+    "location": {
+      "city": "Bridgwater",
+      "region": "Somerset",
+      "coordinates": { "latitude": 51.1284, "longitude": -3.0036 }
+    },
+    "investment": { "amount": 4000000000, "currency": "GBP", "displayAmount": "£4bn" },
+    "industry": { "category": "Automotive", "subcategory": "EV Batteries" },
+    "timeline": {
+      "announcementDate": "2023-07-19",
+      "startDate": "2024-03-01",
+      "expectedCompletionDate": "2026-12-31"
+    },
+    "employment": { "jobsCreated": 4000, "jobsRetained": 0, "jobTypes": ["Manufacturing","Engineering","Quality Control"] },
+    "status": "Construction",
+    "sources": [
+      {
+        "url": "https://www.bbc.co.uk/news/articles/crk6602rl40o/",
+        "title": "Tata's UK battery cell plant on course for 2026 opening",
+        "date": "2025-02-14",
+        "type": "Media"
+      }
+    ],
+    "governmentSupport": { "amount": 500000000, "type": "Grant", "description": "UK support for gigafactory development" },
+    "description": "£4 bn gigafactory will produce 40 GWh of lithium‑ion cells annually for 500,000+ EVs across Europe; ground‑works and grid‑connection under way for 2026 start‑up.",
+    "images": []
+  },
+  {
+    "id": "11",
+    "companyName": "West Midlands Gigafactory JV",
+    "projectName": "Coventry Airport Battery Gigafactory",
+    "location": {
+      "city": "Coventry",
+      "region": "West Midlands",
+      "coordinates": { "latitude": 52.3690, "longitude": -1.4797 }
+    },
+    "investment": { "amount": 2500000000, "currency": "GBP", "displayAmount": "£2.5bn" },
+    "industry": { "category": "Batteries", "subcategory": "EV Batteries" },
+    "timeline": {
+      "announcementDate": "2021-10-21",
+      "startDate": "2022-01-01",
+      "expectedCompletionDate": "2028-12-31"
+    },
+    "employment": { "jobsCreated": 6000, "jobsRetained": 0, "jobTypes": ["Manufacturing","Engineering","Operations"] },
+    "status": "Planning",
+    "governmentSupport": { "amount": 23000000, "type": "Grant", "description": "£23m government funding from West Midlands Combined Authority (WMCA)" },
+    "sources": [
+      {
+        "url": "https://www.wmca.org.uk/news/multi-million-pound-funding-package-to-create-thousands-of-jobs-at-coventry-and-warwick-gigapark/",
+        "title": "WMCA commits £23 m to make Coventry Gigapark 'investor‑ready'",
+        "date": "2025-01-18",
         "type": "Government"
       }
     ],
-    "governmentSupport": {
-      "amount": 100000000,
-      "type": "Grant",
-      "description": "Government grant for battery manufacturing facility"
-    },
-    "description": "Large-scale battery manufacturing facility for electric vehicle batteries in Northumberland.",
-    "images": ["britishvolt-facility.jpg"]
+    "description": "Planned £2.5 bn gigafactory will produce 30+ GWh of EV batteries annually for UK automotive sector; £23 m enabling works approved but anchor investor still sought.",
+    "images": []
   },
   {
-    "id": "2",
-    "companyName": "Jaguar Land Rover",
-    "projectName": "Halewood EV Production",
-    "location": {
-      "city": "Halewood",
-      "region": "England",
-      "postcode": "L26 6UE",
-      "coordinates": {
-        "latitude": 53.3644,
-        "longitude": -2.8397
-      }
-    },
-    "investment": {
-      "amount": 500000000,
-      "currency": "GBP",
-      "displayAmount": "£500m"
-    },
-    "industry": {
-      "category": "Automotive",
-      "subcategory": "Electric Vehicle Manufacturing"
-    },
-    "timeline": {
-      "announcementDate": "2021-02-15",
-      "startDate": "2021-06-01",
-      "expectedCompletionDate": "2024-12-31"
-    },
-    "employment": {
-      "jobsCreated": 1500,
-      "jobsRetained": 2500,
-      "jobTypes": ["Manufacturing", "Assembly", "Quality Control"]
-    },
-    "status": "Construction",
-    "sources": [
-      {
-        "url": "https://www.jaguarlandrover.com/news/2021/02/halewood-ev-investment",
-        "title": "JLR Halewood EV Investment",
-        "date": "2021-02-15",
-        "type": "Company"
-      }
-    ],
-    "description": "Transformation of Halewood plant for electric vehicle production including Range Rover Evoque and Discovery Sport EVs.",
-    "images": ["halewood-plant.jpg"]
-  },
-  {
-    "id": "3",
-    "companyName": "Rolls-Royce",
-    "projectName": "Small Modular Reactor Programme",
-    "location": {
-      "city": "Derby",
-      "region": "England",
-      "postcode": "DE24 8BJ",
-      "coordinates": {
-        "latitude": 52.9225,
-        "longitude": -1.4746
-      }
-    },
-    "investment": {
-      "amount": 400000000,
-      "currency": "GBP",
-      "displayAmount": "£400m"
-    },
-    "industry": {
-      "category": "Renewable Energy",
-      "subcategory": "Nuclear Power"
-    },
-    "timeline": {
-      "announcementDate": "2021-11-09",
-      "startDate": "2022-03-01",
-      "expectedCompletionDate": "2029-12-31"
-    },
-    "employment": {
-      "jobsCreated": 6000,
-      "jobsRetained": 0,
-      "jobTypes": ["Nuclear Engineering", "Manufacturing", "R&D"]
-    },
-    "status": "Planning",
-    "sources": [
-      {
-        "url": "https://www.rolls-royce.com/innovation/small-modular-reactors",
-        "title": "Rolls-Royce SMR Programme",
-        "date": "2021-11-09",
-        "type": "Company"
-      }
-    ],
-    "governmentSupport": {
-      "amount": 210000000,
-      "type": "Grant",
-      "description": "Government funding for SMR development programme"
-    },
-    "description": "Development and manufacturing of small modular reactors for clean energy generation.",
-    "images": ["rolls-royce-smr.jpg"]
-  },
-  {
-    "id": "4",
-    "companyName": "GlobalFoundries",
-    "projectName": "Malta Fab Expansion",
-    "location": {
-      "city": "Kirkcaldy",
-      "region": "Scotland",
-      "postcode": "KY1 2HH",
-      "coordinates": {
-        "latitude": 56.1122,
-        "longitude": -3.1581
-      }
-    },
-    "investment": {
-      "amount": 300000000,
-      "currency": "GBP",
-      "displayAmount": "£300m"
-    },
-    "industry": {
-      "category": "Semiconductor",
-      "subcategory": "Chip Manufacturing"
-    },
-    "timeline": {
-      "announcementDate": "2022-05-12",
-      "startDate": "2022-09-01",
-      "expectedCompletionDate": "2025-06-30"
-    },
-    "employment": {
-      "jobsCreated": 1000,
-      "jobsRetained": 500,
-      "jobTypes": ["Semiconductor Engineering", "Clean Room Operations", "Process Engineering"]
-    },
-    "status": "Construction",
-    "sources": [
-      {
-        "url": "https://www.globalfoundries.com/news/malta-expansion",
-        "title": "GlobalFoundries Malta Expansion",
-        "date": "2022-05-12",
-        "type": "Company"
-      }
-    ],
-    "description": "Expansion of semiconductor fabrication facility in Scotland for advanced chip manufacturing.",
-    "images": ["globalfoundries-malta.jpg"]
-  },
-  {
-    "id": "5",
-    "companyName": "Tata Steel",
-    "projectName": "Port Talbot Green Steel",
+    "id": "12",
+    "companyName": "Tata Steel UK",
+    "projectName": "Port Talbot Green Steel Transformation",
     "location": {
       "city": "Port Talbot",
       "region": "Wales",
-      "postcode": "SA13 2NG",
-      "coordinates": {
-        "latitude": 51.5889,
-        "longitude": -3.7842
-      }
+      "coordinates": { "latitude": 51.5893, "longitude": -3.7827 }
     },
-    "investment": {
-      "amount": 750000000,
-      "currency": "GBP",
-      "displayAmount": "£750m"
-    },
-    "industry": {
-      "category": "Metals",
-      "subcategory": "Steel Production"
-    },
+    "investment": { "amount": 1250000000, "currency": "GBP", "displayAmount": "£1.25bn" },
+    "industry": { "category": "Metals", "subcategory": "Steel (EAF Conversion)" },
     "timeline": {
-      "announcementDate": "2023-01-20",
-      "startDate": "2023-06-01",
+      "announcementDate": "2023-09-15",
+      "startDate": "2024-07-14",
       "expectedCompletionDate": "2027-12-31"
     },
+    "employment": { "jobsCreated": 0, "jobsRetained": 5000, "jobTypes": ["Steel Production","Environmental Engineering","Operations"] },
+    "status": "Construction",
+    "sources": [
+      {
+        "url": "https://www.itv.com/news/wales/2025-07-14/work-to-begin-on-new-125bn-electric-arc-furnace-in-port-talbot",
+        "title": "Work begins on £1.25 bn electric‑arc furnace at Port Talbot",
+        "date": "2025-07-14",
+        "type": "Media"
+      }
+    ],
+    "governmentSupport": { "amount": 500000000, "type": "Grant", "description": "UK grant for green‑steel transition" },
+    "description": "Two electric arc furnaces will produce 3 million tonnes of green steel annually, replacing blast furnace operations; £1.25 bn conversion commenced July 2025 for 2027 commissioning.",
+    "images": []
+  },
+  {
+    "id": "14",
+    "companyName": "Fujifilm Diosynth Biotechnologies",
+    "projectName": "Billingham Biopharmaceutical Campus Expansion",
+    "location": {
+      "city": "Billingham",
+      "region": "Teesside",
+      "coordinates": { "latitude": 54.6139, "longitude": -1.2669 }
+    },
+    "investment": { "amount": 400000000, "currency": "GBP", "displayAmount": "£400m" },
+    "industry": { "category": "Pharmaceuticals", "subcategory": "Biologics Manufacturing" },
+    "timeline": {
+      "announcementDate": "2021-12-02",
+      "startDate": "2022-01-01",
+      "expectedCompletionDate": "2024-08-20"
+    },
+    "employment": { "jobsCreated": 350, "jobsRetained": 0, "jobTypes": ["Biotechnology","Manufacturing","Quality Control"] },
+    "status": "Operational",
+    "sources": [
+      {
+        "url": "https://fujifilmbiotechnologies.fujifilm.com/about/news/fujifilm-diosynth-biotechnologies-breaks-ground-on-large-scale-microbial-manufacturing-facility-expansion-in-billingham-uk/",
+        "title": "FUJIFILM Diosynth opens new microbial facility at Billingham",
+        "date": "2024-08-20",
+        "type": "Company"
+      }
+    ],
+    "description": "State‑of‑the‑art microbial fermentation facility produces biologics and vaccines at 15,000L scale, tripling site capacity; £400 m expansion operational since Aug 2024.",
+    "images": []
+  },
+  {
+    "id": "15",
+    "companyName": "SeAH Wind Ltd",
+    "projectName": "Teesside Monopile Manufacturing Facility",
+    "location": {
+      "city": "Redcar",
+      "region": "Teesside",
+      "coordinates": { "latitude": 54.5760, "longitude": -1.1110 }
+    },
+    "investment": { "amount": 900000000, "currency": "GBP", "displayAmount": "£900m" },
+    "industry": { "category": "Renewable Energy", "subcategory": "Offshore Wind Components" },
+    "timeline": {
+      "announcementDate": "2022-06-17",
+      "startDate": "2022-07-01",
+      "expectedCompletionDate": "2025-03-31"
+    },
+    "employment": { "jobsCreated": 750, "jobsRetained": 0, "jobTypes": ["Manufacturing","Engineering","Welding"] },
+    "status": "Operational",
+    "sources": [
+      {
+        "url": "https://energicoast.co.uk/news/2025/february/seah-wind-confirms-march-start-for-teesworks/",
+        "title": "SeAH Wind confirms March 2025 start at Teesworks XXL‑monopile factory",
+        "date": "2025-02-13",
+        "type": "Media"
+      }
+    ],
+    "description": "Advanced manufacturing facility will produce 100+ XXL monopiles annually for offshore wind farms up to 20 MW; £900 m plant commenced commercial production March 2025.",
+    "images": []
+  },
+  {
+    "id": "17",
+    "companyName": "Green Lithium",
+    "projectName": "Teesside Lithium Refinery (PD Ports)",
+    "location": {
+      "city": "Middlesbrough",
+      "region": "Teesside",
+      "coordinates": { "latitude": 54.5766, "longitude": -1.1622 }
+    },
+    "investment": { "amount": 600000000, "currency": "GBP", "displayAmount": "£600m" },
+    "industry": { "category": "Chemicals", "subcategory": "Battery Materials" },
+    "timeline": {
+      "announcementDate": "2022-11-07",
+      "startDate": "2026-01-01",
+      "expectedCompletionDate": "2029-12-31"
+    },
+    "employment": { "jobsCreated": 250, "jobsRetained": 0, "jobTypes": ["Chemical Engineering","Process Operations","Quality Control"] },
+    "status": "Planning",
+    "sources": [
+      {
+        "url": "https://www.spglobal.com/commodity-insights/en/news-research/latest-news/metals/082224-interview-green-lithium-to-build-pilot-plant-to-support-plans-for-commercial-uk-lithium-refinery",
+        "title": "Green Lithium to build pilot plant ahead of Teesside refinery",
+        "date": "2024-08-22",
+        "type": "Media"
+      }
+    ],
+    "governmentSupport": { "amount": 600000, "type": "Grant", "description": "ATF grant plus ongoing equity raise to reach FID" },
+    "description": "UK's first lithium refinery will process 50,000 tonnes of battery‑grade lithium hydroxide annually from global spodumene; £600 m facility targets 2025 FID with pilot plant operational.",
+    "images": []
+  },
+  {
+    "id": "18",
+    "companyName": "Moderna Inc.",
+    "projectName": "UK mRNA Vaccine Centre (Harwell)",
+    "location": {
+      "city": "Didcot",
+      "region": "Oxfordshire",
+      "coordinates": { "latitude": 51.5728, "longitude": -1.3101 }
+    },
+    "investment": { "amount": 1000000000, "currency": "GBP", "displayAmount": "£1bn" },
+    "industry": { "category": "Pharmaceuticals", "subcategory": "Vaccines (mRNA)" },
+    "timeline": {
+      "announcementDate": "2022-06-22",
+      "startDate": "2023-12-22",
+      "expectedCompletionDate": "2025-02-11"
+    },
+    "employment": { "jobsCreated": 150, "jobsRetained": 0, "jobTypes": ["Biotechnology","Research","Manufacturing"] },
+    "status": "Commissioning",
+    "sources": [
+      {
+        "url": "https://www.ft.com/content/aab5de46-6a30-44fb-9e9d-08b915059b6f",
+        "title": "Moderna Innovation and Technology Centre at Harwell completed",
+        "date": "2025-02-11",
+        "type": "Media"
+      }
+    ],
+    "description": "Innovation centre will produce 50+ million mRNA vaccine doses annually for pandemic preparedness and seasonal flu with long‑term UK government supply agreement; £1 bn facility completed Feb 2025 with GMP validation ongoing.",
+    "images": []
+  },
+  {
+    "id": "19",
+    "companyName": "Equinor ASA",
+    "projectName": "H2H Saltend Blue Hydrogen Project",
+    "location": {
+      "city": "Hull",
+      "region": "East Yorkshire",
+      "coordinates": { "latitude": 53.7445, "longitude": -0.2708 }
+    },
+    "investment": { "amount": 1000000000, "currency": "GBP", "displayAmount": "£1bn" },
+    "industry": { "category": "Energy", "subcategory": "Hydrogen Production" },
+    "timeline": {
+      "announcementDate": "2024-02-20",
+      "startDate": "2028-01-01",
+      "expectedCompletionDate": "2032-12-31"
+    },
+    "employment": { "jobsCreated": 2200, "jobsRetained": 0, "jobTypes": ["Chemical Engineering","Process Operations","Environmental Engineering"] },
+    "status": "Planning",
+    "sources": [
+      {
+        "url": "https://www.spglobal.com/commodity-insights/en/news-research/latest-news/energy-transition/061224-equinor-pushes-back-target-fid-on-uk-blue-hydrogen-plans-amid-funding-uncertainty",
+        "title": "Equinor delays H2H Saltend final investment decision to 2027",
+        "date": "2024-06-12",
+        "type": "Media"
+      }
+    ],
+    "description": "Industrial‑scale facility will produce 300,000 tonnes of blue hydrogen annually via 600 MW autothermal reforming with CCS; £1 bn project targets 2027 FID for 2032 start‑up.",
+    "images": []
+  },
+  {
+    "id": "21",
+    "companyName": "Metsä Tissue",
+    "projectName": "Goole Tissue‑Paper Future Mill",
+    "location": {
+      "city": "Goole",
+      "region": "East Riding of Yorkshire",
+      "coordinates": { "latitude": 53.7064, "longitude": -0.8739 }
+    },
+    "investment": { "amount": 350000000, "currency": "GBP", "displayAmount": "£350m" },
+    "industry": { "category": "Paper & Packaging", "subcategory": "Tissue Paper" },
+    "timeline": {
+      "announcementDate": "2023-09-21",
+      "startDate": "2026-01-01",
+      "expectedCompletionDate": "2029-12-31"
+    },
     "employment": {
-      "jobsCreated": 2000,
-      "jobsRetained": 3000,
-      "jobTypes": ["Steel Production", "Environmental Engineering", "Operations"]
+      "jobsCreated": 400,
+      "jobsRetained": 0,
+      "jobTypes": ["Paper Manufacturing", "Process Operations", "Engineering"]
     },
     "status": "Planning",
     "sources": [
       {
-        "url": "https://www.tatasteeleurope.com/news/port-talbot-green-steel",
-        "title": "Tata Steel Port Talbot Green Investment",
-        "date": "2023-01-20",
+        "url": "https://www.metsagroup.com/metsatissue/news-and-publications/news/2025/metsa-group-submits-final-planning-application-for-proposed-goole-tissue-paper-mill/",
+        "title": "Metsä Tissue announces landmark UK investment in Goole",
+        "date": "2023-09-21",
         "type": "Company"
       }
     ],
-    "governmentSupport": {
-      "amount": 300000000,
-      "type": "Grant",
-      "description": "Government support for green steel transition"
+    "description": "Europe's most advanced tissue mill will produce 200,000+ tonnes of premium tissue paper annually using next‑generation TAD technology; £350 m 'Future Mill' planned for phased construction 2026–2029.",
+    "images": []
+  },
+  {
+    "id": "22",
+    "companyName": "XLCC Ltd",
+    "projectName": "Hunterston HVDC Subsea Cable Factory",
+    "location": {
+      "city": "Hunterston",
+      "region": "North Ayrshire",
+      "coordinates": { "latitude": 55.7262, "longitude": -4.8629 }
     },
-    "description": "Transformation of Port Talbot steelworks to produce green steel using hydrogen technology.",
-    "images": ["port-talbot-steelworks.jpg"]
+    "investment": { "amount": 1400000000, "currency": "GBP", "displayAmount": "£1.4bn" },
+    "industry": { "category": "Energy", "subcategory": "HVDC Sub‑sea Cables" },
+    "timeline": {
+      "announcementDate": "2022-06-29",
+      "startDate": "2024-01-01",
+      "expectedCompletionDate": "2026-12-31"
+    },
+    "employment": {
+      "jobsCreated": 900,
+      "jobsRetained": 0,
+      "jobTypes": ["Cable Manufacturing","Engineering","Operations"]
+    },
+    "status": "Construction",
+    "governmentSupport": {
+      "amount": 20000000,
+      "type": "Equity/Loan",
+      "description": "UK Infrastructure Bank cornerstone investment (Sep 2024)"
+    },
+    "sources": [
+      {
+        "url": "https://www.ft.com/content/8ce06f13-c09c-42b4-ba65-d29d4983d60d",
+        "title": "UK Infrastructure Bank backs £1.4 bn XLCC HVDC cable factory at Hunterston",
+        "date": "2024-09-27",
+        "type": "Media"
+      }
+    ],
+    "description": "First‑of‑its‑kind HVDC cable plant will produce up to 1,300 km of 525 kV export cable a year to serve projects such as Xlinks; civil works began early‑2024.",
+    "images": []
+  },
+  {
+    "id": "23",
+    "companyName": "AESC UK Ltd",
+    "projectName": "Sunderland Gigafactory – Phase 2 (15.8 GWh)",
+    "location": {
+      "city": "Sunderland",
+      "region": "Tyne and Wear",
+      "coordinates": { "latitude": 54.9140, "longitude": -1.3690 }
+    },
+    "investment": { "amount": 1036000000, "currency": "GBP", "displayAmount": "£1.04bn" },
+    "industry": { "category": "Automotive", "subcategory": "EV Batteries" },
+    "timeline": {
+      "announcementDate": "2025-05-09",
+      "startDate": "2025-05-09",
+      "expectedCompletionDate": "2027-12-31"
+    },
+    "employment": {
+      "jobsCreated": 1000,
+      "jobsRetained": 0,
+      "jobTypes": ["Manufacturing","Engineering","Quality Control"]
+    },
+    "status": "Construction",
+    "governmentSupport": {
+      "amount": 680000000,
+      "type": "Guarantee",
+      "description": "National Wealth Fund & UK Export Finance loan‑guarantee package"
+    },
+    "sources": [
+      {
+        "url": "https://www.reuters.com/business/retail-consumer/britain-announces-1-bln-pound-aesc-gigafactory-funding-deal-2025-05-09/",
+        "title": "Britain backs new £1 bn AESC gigafactory in Sunderland",
+        "date": "2025-05-09",
+        "type": "Media"
+      }
+    ],
+    "description": "Second AESC plant will lift UK cell capacity to 15.8 GWh and supply batteries for up to 100,000 EVs a year; financing closed May 2025, with 1,000 new jobs.",
+    "images": []
+  },
+  {
+    "id": "24",
+    "companyName": "Rolls‑Royce Motor Cars",
+    "projectName": "Goodwood EV & Bespoke Facility Expansion",
+    "location": {
+      "city": "Goodwood (Chichester)",
+      "region": "West Sussex",
+      "coordinates": { "latitude": 50.8611, "longitude": -0.7592 }
+    },
+    "investment": { "amount": 300000000, "currency": "GBP", "displayAmount": "£300m+" },
+    "industry": { "category": "Automotive", "subcategory": "Luxury EV Re‑tool" },
+    "timeline": {
+      "announcementDate": "2025-01-08",
+      "startDate": "2025-01-15",
+      "expectedCompletionDate": "2027-12-31"
+    },
+    "employment": {
+      "jobsCreated": 0,
+      "jobsRetained": 2500,
+      "jobTypes": ["Coachbuilding","Assembly","Craftsmanship"]
+    },
+    "status": "Planning",
+    "sources": [
+      {
+        "url": "https://www.press.rolls-roycemotorcars.com/rolls-royce-motor-cars-pressclub/article/detail/T0447359EN/landmark-investment-crowns-record-year-for-bespoke-at-rolls-royce-motor-cars",
+        "title": "Rolls‑Royce commits £300 m to expand Goodwood ahead of all‑EV future",
+        "date": "2025-01-08",
+        "type": "Company"
+      }
+    ],
+    "description": "Expanded luxury facility will hand‑build 6,000+ bespoke electric vehicles annually including Spectre and future BEV models; £300 m expansion prepares Goodwood for all‑electric transition by 2030.",
+    "images": []
+  },
+  {
+    "id": "25",
+    "companyName": "Rheinmetall BAE Systems Land (RBSL)",
+    "projectName": "Telford Large‑Calibre Gun Hall",
+    "location": {
+      "city": "Telford",
+      "region": "Shropshire",
+      "coordinates": { "latitude": 52.6950, "longitude": -2.5110 }
+    },
+    "investment": { "amount": 400000000, "currency": "GBP", "displayAmount": "£400m" },
+    "industry": { "category": "Defence Manufacturing", "subcategory": "Artillery Barrels & Vehicle Systems" },
+    "timeline": {
+      "announcementDate": "2025-05-19",
+      "startDate": "2025-05-19",
+      "expectedCompletionDate": "2028-12-31"
+    },
+    "employment": {
+      "jobsCreated": 400,
+      "jobsRetained": 0,
+      "jobTypes": ["Precision Engineering","Machining","Quality Control"]
+    },
+    "status": "Planning",
+    "sources": [
+      {
+        "url": "https://www.telford-live.com/2025/05/telford-manufacturing-boost-with-400m-rheinmetall-investment/",
+        "title": "Telford secures £400 m Rheinmetall investment for next‑gen Gun Hall",
+        "date": "2025-05-19",
+        "type": "Media"
+      }
+    ],
+    "description": "Advanced precision facility will manufacture 120mm and 130mm gun barrels for Challenger 3 and Boxer vehicles, securing UK artillery sovereignty; £400 m 'Gun Hall' creates 400 specialized engineering roles.",
+    "images": []
   }
 ]

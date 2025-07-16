@@ -3,8 +3,9 @@ import { UKProject, ProjectFilters } from '../../types';
 import Header from './Header';
 import UKMap from '../map/UKMap';
 import ProjectCard from '../project/ProjectCard';
-import ProjectFiltersComponent from '../project/ProjectFilters';
+import ProjectFiltersComponent, { REGION_MAPPING } from '../project/ProjectFilters';
 import ProjectDetailModal from '../project/ProjectDetailModal';
+import SelectionCriteriaModal from '../common/SelectionCriteriaModal';
 import LoadingState from '../common/LoadingState';
 import ErrorBoundary from '../common/ErrorBoundary';
 
@@ -16,6 +17,7 @@ interface LayoutProps {
 const Layout: React.FC<LayoutProps> = ({ projects, isLoading = false }) => {
   const [selectedProject, setSelectedProject] = useState<UKProject | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isCriteriaModalOpen, setIsCriteriaModalOpen] = useState(false);
   const [sortBy, setSortBy] = useState<string>('investment-desc');
   const [filters, setFilters] = useState<ProjectFilters>({
     regions: [],
@@ -43,7 +45,8 @@ const Layout: React.FC<LayoutProps> = ({ projects, isLoading = false }) => {
 
       // Region filter
       if (filters.regions.length > 0) {
-        if (!filters.regions.includes(project.location.region)) return false;
+        const mappedRegion = REGION_MAPPING[project.location.region] || project.location.region;
+        if (!filters.regions.includes(mappedRegion)) return false;
       }
 
       // Industry filter
@@ -110,17 +113,32 @@ const Layout: React.FC<LayoutProps> = ({ projects, isLoading = false }) => {
     setSelectedProject(null);
   };
 
+  const handleOpenCriteriaModal = () => {
+    setIsCriteriaModalOpen(true);
+  };
+
+  const handleCloseCriteriaModal = () => {
+    setIsCriteriaModalOpen(false);
+  };
+
   // Keyboard navigation support
   React.useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && isModalOpen) {
-        handleCloseModal();
+      if (e.key === 'Escape') {
+        if (isCriteriaModalOpen) {
+          setIsCriteriaModalOpen(false);
+        } else if (isModalOpen) {
+          setIsModalOpen(false);
+          setSelectedProject(null);
+        }
       }
     };
 
-    document.addEventListener('keydown', handleKeyDown);
-    return () => document.removeEventListener('keydown', handleKeyDown);
-  }, [isModalOpen]);
+    if (isModalOpen || isCriteriaModalOpen) {
+      document.addEventListener('keydown', handleKeyDown);
+      return () => document.removeEventListener('keydown', handleKeyDown);
+    }
+  }, [isModalOpen, isCriteriaModalOpen]);
 
   if (isLoading) {
     return (
@@ -147,7 +165,7 @@ const Layout: React.FC<LayoutProps> = ({ projects, isLoading = false }) => {
           <div className="flex flex-col lg:flex-row gap-6 lg:gap-8">
             {/* Filters Sidebar */}
             <div className="lg:w-80 xl:w-96">
-              <div className="sticky top-8">
+              <div className="sticky top-8 max-h-[calc(100vh-2rem)] overflow-y-auto">
                 <ProjectFiltersComponent
                   filters={filters}
                   onFiltersChange={setFilters}
@@ -176,6 +194,17 @@ const Layout: React.FC<LayoutProps> = ({ projects, isLoading = false }) => {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                       </svg>
                       Interactive Map
+                      <button
+                        onClick={handleOpenCriteriaModal}
+                        className="ml-2 px-3 py-2 bg-purple-500 hover:bg-purple-600 text-white rounded-lg transition-colors shadow-lg hover:shadow-purple-500/25 flex items-center gap-2 text-sm font-medium"
+                        title="Project Selection Criteria"
+                        aria-label="Project Selection Criteria"
+                      >
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        Selection Criteria
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -278,6 +307,11 @@ const Layout: React.FC<LayoutProps> = ({ projects, isLoading = false }) => {
           project={selectedProject}
           isOpen={isModalOpen}
           onClose={handleCloseModal}
+        />
+        
+        <SelectionCriteriaModal
+          isOpen={isCriteriaModalOpen}
+          onClose={handleCloseCriteriaModal}
         />
       </div>
     </ErrorBoundary>
