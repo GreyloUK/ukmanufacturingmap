@@ -12,11 +12,19 @@ interface BreadcrumbsProps {
 }
 
 const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ items, className = '' }) => {
+  // Generate a stable key for each breadcrumb item
+  const generateKey = (item: BreadcrumbItem, index: number): string => {
+    // Use label and href to create a unique key, fallback to index if needed
+    const baseKey = `${item.label}-${item.href || 'no-href'}`;
+    // Add index as fallback to handle potential duplicates
+    return `${baseKey}-${index}`;
+  };
+
   return (
     <nav className={`flex ${className}`} aria-label="Breadcrumb">
       <ol className="flex items-center space-x-2">
         {items.map((item, index) => (
-          <li key={index} className="flex items-center">
+          <li key={generateKey(item, index)} className="flex items-center">
             {index > 0 && (
               <svg
                 className="h-4 w-4 text-gray-400 mx-2"
