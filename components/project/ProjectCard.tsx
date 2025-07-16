@@ -2,7 +2,7 @@ import React from 'react';
 import { UKProject } from '../../types';
 import { formatCurrency, formatNumber } from '../../utils/currency';
 import { formatDateShort } from '../../utils/date';
-import { getIndustryColour, getStatusColour } from '../../utils/map-utils';
+import { getStatusColour } from '../../utils/map-utils';
 
 interface ProjectCardProps {
   project: UKProject;

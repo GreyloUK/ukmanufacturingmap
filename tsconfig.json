@@ -32,7 +32,8 @@
     "components/**/*.ts",
     "utils/**/*.ts",
     "types/**/*.ts",
-    "data/**/*.json"
+    "data/**/*.json",
+    "vite-env.d.ts"
   ],
   "exclude": [
     "node_modules",
