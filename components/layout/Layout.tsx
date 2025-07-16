@@ -3,7 +3,7 @@ import { UKProject, ProjectFilters } from '../../types';
 import Header from './Header';
 import UKMap from '../map/UKMap';
 import ProjectCard from '../project/ProjectCard';
-import ProjectFiltersComponent, { REGION_MAPPING } from '../project/ProjectFilters';
+import ProjectFiltersComponent from '../project/ProjectFilters';
 import ProjectDetailModal from '../project/ProjectDetailModal';
 import SelectionCriteriaModal from '../common/SelectionCriteriaModal';
 import LoadingState from '../common/LoadingState';
@@ -20,7 +20,6 @@ const Layout: React.FC<LayoutProps> = ({ projects, isLoading = false }) => {
   const [isCriteriaModalOpen, setIsCriteriaModalOpen] = useState(false);
   const [sortBy, setSortBy] = useState<string>('investment-desc');
   const [filters, setFilters] = useState<ProjectFilters>({
-    regions: [],
     industries: [],
     investmentRange: { min: 0, max: Infinity },
     timelineRange: { startDate: '', endDate: '' },
@@ -43,11 +42,7 @@ const Layout: React.FC<LayoutProps> = ({ projects, isLoading = false }) => {
         if (!matchesSearch) return false;
       }
 
-      // Region filter
-      if (filters.regions.length > 0) {
-        const mappedRegion = REGION_MAPPING[project.location.region] || project.location.region;
-        if (!filters.regions.includes(mappedRegion)) return false;
-      }
+      // Region filter removed
 
       // Industry filter
       if (filters.industries.length > 0) {
@@ -273,7 +268,6 @@ const Layout: React.FC<LayoutProps> = ({ projects, isLoading = false }) => {
                     </p>
                     <button 
                       onClick={() => setFilters({
-                        regions: [],
                         industries: [],
                         investmentRange: { min: 0, max: Infinity },
                         timelineRange: { startDate: '', endDate: '' },

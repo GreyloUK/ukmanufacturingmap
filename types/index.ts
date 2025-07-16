@@ -63,7 +63,6 @@ export interface UKRegion {
 }
 
 export interface ProjectFilters {
-  regions: string[];
   industries: string[];
   investmentRange: {
     min: number;

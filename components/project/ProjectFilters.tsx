@@ -9,49 +9,20 @@ interface ProjectFiltersProps {
 
 const INDUSTRY_OPTIONS = [
   'Automotive',
-  'Batteries',
-  'Chemicals',
-  'Defence Manufacturing',
-  'Energy',
+  'Battery',
   'Metals',
-  'Paper & Packaging',
   'Pharmaceuticals',
   'Renewable Energy',
-  'Semiconductors'
+  'Semiconductor',
+  'Other'
 ];
 
-const REGION_OPTIONS = [
-  'East Midlands',
-  'North East',
-  'North West', 
-  'Scotland',
-  'South East',
-  'South West',
-  'Wales',
-  'West Midlands',
-  'Yorkshire and the Humber'
-];
-
-// Mapping from specific regions in data to UK regions
-export const REGION_MAPPING: Record<string, string> = {
-  'Tyne and Wear': 'North East',
-  'Teesside': 'North East',
-  'East Yorkshire': 'Yorkshire and the Humber',
-  'East Riding of Yorkshire': 'Yorkshire and the Humber',
-  'West Midlands': 'West Midlands',
-  'Somerset': 'South West',
-  'Oxfordshire': 'South East',
-  'West Sussex': 'South East',
-  'Shropshire': 'West Midlands',
-  'North Ayrshire': 'Scotland',
-  'Wales': 'Wales'
-};
+// Region options removed - no longer needed
 
 const STATUS_OPTIONS = [
-  'Commissioning',
+  'Announced',
   'Construction',
   'Operational',
-  'Planned',
   'Planning'
 ];
 
@@ -83,16 +54,7 @@ const ProjectFilters: React.FC<ProjectFiltersProps> = ({
     });
   };
 
-  const handleRegionChange = (region: string) => {
-    const newRegions = filters.regions.includes(region)
-      ? filters.regions.filter(r => r !== region)
-      : [...filters.regions, region];
-    
-    onFiltersChange({
-      ...filters,
-      regions: newRegions
-    });
-  };
+  // Region handler removed
 
   const handleStatusChange = (status: string) => {
     const newStatuses = filters.status.includes(status)
@@ -121,7 +83,6 @@ const ProjectFilters: React.FC<ProjectFiltersProps> = ({
 
   const clearAllFilters = () => {
     onFiltersChange({
-      regions: [],
       industries: [],
       investmentRange: { min: 0, max: Infinity },
       timelineRange: { startDate: '', endDate: '' },
@@ -131,7 +92,6 @@ const ProjectFilters: React.FC<ProjectFiltersProps> = ({
   };
 
   const activeFiltersCount = 
-    filters.regions.length + 
     filters.industries.length + 
     filters.status.length + 
     (filters.investmentRange.min > 0 || filters.investmentRange.max < Infinity ? 1 : 0) +
@@ -230,34 +190,7 @@ const ProjectFilters: React.FC<ProjectFiltersProps> = ({
             </div>
           </div>
 
-          {/* Region Filter */}
-          <div>
-            <div className="flex items-center gap-2 mb-4">
-              <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-              </svg>
-              <h4 className="font-semibold text-white font-sans">Region</h4>
-              {filters.regions.length > 0 && (
-                <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-mint-500/20 text-mint-400 font-sans">
-                  {filters.regions.length}
-                </span>
-              )}
-            </div>
-            <div className="grid grid-cols-1 gap-3">
-              {REGION_OPTIONS.map(region => (
-                <label key={region} className="flex items-center group cursor-pointer">
-                  <input
-                    type="checkbox"
-                    checked={filters.regions.includes(region)}
-                    onChange={() => handleRegionChange(region)}
-                    className="rounded border-gray-500 text-mint-500 focus:ring-mint-500 focus:ring-offset-0 bg-dark-600"
-                  />
-                  <span className="ml-3 text-sm text-gray-300 group-hover:text-white font-sans">{region}</span>
-                </label>
-              ))}
-            </div>
-          </div>
+          {/* Region Filter removed */}
 
           {/* Investment Range Filter */}
           <div>
