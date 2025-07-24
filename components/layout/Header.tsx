@@ -47,7 +47,7 @@ const Header: React.FC<HeaderProps> = ({
                   UK MANUFACTURING
                 </h1>
                 <div className="text-xl lg:text-2xl font-bold text-gradient-mint font-sans">
-                  MEGA PROJECTS
+                  MEGAPROJECTS
                 </div>
               </div>
             </div>
