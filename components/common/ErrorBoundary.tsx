@@ -1,8 +1,10 @@
-import { Component, ErrorInfo, ReactNode } from 'react';
+import React, { Component, ErrorInfo, ReactNode } from 'react';
+import { useThemeStore } from '../../store/themeStore';
 
 interface Props {
   children: ReactNode;
   fallback?: ReactNode;
+  isDarkMode?: boolean;
 }
 
 interface State {
@@ -93,28 +95,30 @@ class ErrorBoundary extends Component<Props, State> {
         ? this.sanitizeErrorMessage(this.state.error)
         : 'An unknown error occurred';
 
+      const isDarkMode = this.props.isDarkMode ?? false;
+      
       return (
-        <div className="bg-red-50 border border-red-200 rounded-lg p-6 m-4">
+        <div className={`rounded-lg p-6 m-4 border ${isDarkMode ? 'bg-red-900/20 border-red-800/30' : 'bg-red-50 border-red-200'}`}>
           <div className="flex items-center gap-3 mb-4">
-            <svg className="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className={`w-6 h-6 ${isDarkMode ? 'text-red-400' : 'text-red-600'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
-            <h2 className="text-lg font-semibold text-red-800">Something went wrong</h2>
+            <h2 className={`text-lg font-semibold ${isDarkMode ? 'text-red-300' : 'text-red-800'}`}>Something went wrong</h2>
           </div>
-          <p className="text-red-700 mb-4">
+          <p className={`${isDarkMode ? 'text-red-200' : 'text-red-700'} mb-4`}>
             We encountered an unexpected error. Please try refreshing the page.
           </p>
           {this.state.error && (
-            <details className="text-sm text-red-600">
+            <details className={`text-sm ${isDarkMode ? 'text-red-300' : 'text-red-600'}`}>
               <summary className="cursor-pointer font-medium mb-2">Error details</summary>
-              <pre className="bg-red-100 p-2 rounded text-xs overflow-x-auto whitespace-pre-wrap break-words">
+              <pre className={`p-2 rounded text-xs overflow-x-auto whitespace-pre-wrap break-words ${isDarkMode ? 'bg-red-900/30' : 'bg-red-100'}`}>
                 {sanitizedMessage}
               </pre>
             </details>
           )}
           <button
             onClick={() => window.location.reload()}
-            className="mt-4 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors"
+            className={`mt-4 px-4 py-2 rounded-lg transition-colors text-white ${isDarkMode ? 'bg-red-700 hover:bg-red-600' : 'bg-red-600 hover:bg-red-700'}`}
           >
             Refresh Page
           </button>
@@ -126,4 +130,10 @@ class ErrorBoundary extends Component<Props, State> {
   }
 }
 
-export default ErrorBoundary;
+// Wrapper component to provide theme support to the class component
+const ThemedErrorBoundary: React.FC<Omit<Props, 'isDarkMode'>> = (props) => {
+  const { isDarkMode } = useThemeStore();
+  return <ErrorBoundary {...props} isDarkMode={isDarkMode} />;
+};
+
+export default ThemedErrorBoundary;

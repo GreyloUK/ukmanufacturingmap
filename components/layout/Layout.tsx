@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { UKProject, ProjectFilters } from '../../types';
+import { useThemeStore } from '../../store/themeStore';
 import Header from './Header';
 import UKMap from '../map/UKMap';
 import ProjectCard from '../project/ProjectCard';
@@ -15,6 +16,7 @@ interface LayoutProps {
 }
 
 const Layout: React.FC<LayoutProps> = ({ projects, isLoading = false }) => {
+  const { isDarkMode } = useThemeStore();
   const [selectedProject, setSelectedProject] = useState<UKProject | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isCriteriaModalOpen, setIsCriteriaModalOpen] = useState(false);
@@ -137,7 +139,7 @@ const Layout: React.FC<LayoutProps> = ({ projects, isLoading = false }) => {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-dark-900">
+      <div className={`min-h-screen transition-all duration-500 ${isDarkMode ? 'bg-dark-900' : 'bg-white'}`}>
         <Header projectCount={0} totalInvestment={0} totalJobs={0} />
         <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <LoadingState message="Loading manufacturing projects..." />
@@ -148,7 +150,7 @@ const Layout: React.FC<LayoutProps> = ({ projects, isLoading = false }) => {
 
   return (
     <ErrorBoundary>
-      <div className="min-h-screen bg-dark-900">
+      <div className={`min-h-screen transition-all duration-500 ${isDarkMode ? 'bg-dark-900' : 'bg-gradient-to-br from-blue-50 via-white to-indigo-50'}`}>
         <Header
           projectCount={filteredAndSortedProjects.length}
           totalInvestment={totalInvestment}
@@ -172,18 +174,18 @@ const Layout: React.FC<LayoutProps> = ({ projects, isLoading = false }) => {
             {/* Main Content */}
             <div className="flex-1 min-w-0">
               {/* Map Section */}
-              <div className="bg-dark-700 rounded-xl shadow-lg mb-8">
-                <div className="p-6 border-b border-dark-600">
+              <div className={`${isDarkMode ? 'bg-dark-700 border-dark-600' : 'bg-white border-gray-200'} rounded-xl shadow-lg mb-8 border transition-all duration-300`}>
+                <div className={`p-6 ${isDarkMode ? 'border-b border-dark-600' : 'border-b border-gray-200'}`}>
                   <div className="flex items-center justify-between">
                     <div>
-                      <h2 className="text-xl font-bold text-white font-sans">
+                      <h2 className={`text-xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} font-sans`}>
                         Project Locations
                       </h2>
-                      <p className="text-sm text-gray-300 mt-1 font-sans">
+                      <p className={`text-sm ${isDarkMode ? 'text-gray-300' : 'text-gray-600'} mt-1 font-sans`}>
                         {filteredAndSortedProjects.length} project{filteredAndSortedProjects.length !== 1 ? 's' : ''} across the UK
                       </p>
                     </div>
-                    <div className="flex items-center gap-2 text-sm text-gray-400 font-sans">
+                    <div className={`flex items-center gap-2 text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-500'} font-sans`}>
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -191,7 +193,7 @@ const Layout: React.FC<LayoutProps> = ({ projects, isLoading = false }) => {
                       Interactive Map
                       <button
                         onClick={handleOpenCriteriaModal}
-                        className="ml-2 px-3 py-2 bg-purple-500 hover:bg-purple-600 text-white rounded-lg transition-colors shadow-lg hover:shadow-purple-500/25 flex items-center gap-2 text-sm font-medium"
+                        className={`ml-2 px-3 py-2 ${isDarkMode ? 'bg-purple-500 hover:bg-purple-600 hover:shadow-purple-500/25' : 'bg-purple-600 hover:bg-purple-700 hover:shadow-purple-600/25'} text-white rounded-lg transition-all duration-200 shadow-lg flex items-center gap-2 text-sm font-medium`}
                         title="Project Selection Criteria"
                         aria-label="Project Selection Criteria"
                       >
@@ -205,10 +207,10 @@ const Layout: React.FC<LayoutProps> = ({ projects, isLoading = false }) => {
                 </div>
                 <div className="h-[500px] sm:h-[600px]">
                   <ErrorBoundary fallback={
-                    <div className="h-full flex items-center justify-center bg-dark-800 rounded-lg">
+                    <div className={`h-full flex items-center justify-center ${isDarkMode ? 'bg-dark-800' : 'bg-gray-50'} rounded-lg`}>
                       <div className="text-center">
-                        <p className="text-gray-300 mb-4 font-sans">Unable to load map</p>
-                        <p className="text-sm text-gray-400 font-sans">Please check your internet connection and try again</p>
+                        <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'} mb-4 font-sans`}>Unable to load map</p>
+                        <p className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-500'} font-sans`}>Please check your internet connection and try again</p>
                       </div>
                     </div>
                   }>
@@ -226,10 +228,10 @@ const Layout: React.FC<LayoutProps> = ({ projects, isLoading = false }) => {
               <div className="space-y-6">
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                   <div>
-                    <h2 className="text-xl font-bold text-white font-sans">
+                    <h2 className={`text-xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} font-sans`}>
                       Manufacturing Projects
                     </h2>
-                    <p className="text-sm text-gray-300 mt-1 font-sans">
+                    <p className={`text-sm ${isDarkMode ? 'text-gray-300' : 'text-gray-600'} mt-1 font-sans`}>
                       Detailed view of all projects
                     </p>
                   </div>
@@ -237,7 +239,7 @@ const Layout: React.FC<LayoutProps> = ({ projects, isLoading = false }) => {
                     <select 
                       value={sortBy}
                       onChange={(e) => setSortBy(e.target.value)}
-                      className="px-4 py-2 text-sm border border-dark-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-mint-500 focus:border-mint-500 bg-dark-600 text-white font-sans"
+                      className={`px-4 py-2 text-sm ${isDarkMode ? 'border-dark-600 bg-dark-600 text-white' : 'border-gray-300 bg-white text-gray-900'} border rounded-lg focus:outline-none focus:ring-2 focus:ring-mint-500 focus:border-mint-500 transition-colors font-sans`}
                     >
                       <option value="investment-desc">Investment (High to Low)</option>
                       <option value="investment-asc">Investment (Low to High)</option>
@@ -246,7 +248,7 @@ const Layout: React.FC<LayoutProps> = ({ projects, isLoading = false }) => {
                       <option value="jobs-desc">Jobs (High to Low)</option>
                       <option value="alphabetical">Alphabetical</option>
                     </select>
-                    <button className="px-4 py-2 text-sm bg-dark-600 text-gray-300 rounded-lg hover:bg-dark-500 transition-colors font-sans">
+                    <button className={`px-4 py-2 text-sm ${isDarkMode ? 'bg-dark-600 text-gray-300 hover:bg-dark-500' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'} rounded-lg transition-colors font-sans`}>
                       <svg className="w-4 h-4 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 10h16M4 14h16M4 18h16" />
                       </svg>
@@ -256,14 +258,14 @@ const Layout: React.FC<LayoutProps> = ({ projects, isLoading = false }) => {
                 </div>
 
                 {filteredAndSortedProjects.length === 0 ? (
-                  <div className="bg-dark-700 rounded-xl shadow-lg p-16 text-center">
-                    <div className="w-20 h-20 mx-auto mb-6 bg-dark-600 rounded-full flex items-center justify-center">
-                      <svg className="w-10 h-10 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className={`${isDarkMode ? 'bg-dark-700' : 'bg-white border border-gray-200'} rounded-xl shadow-lg p-16 text-center`}>
+                    <div className={`w-20 h-20 mx-auto mb-6 ${isDarkMode ? 'bg-dark-600' : 'bg-gray-100'} rounded-full flex items-center justify-center`}>
+                      <svg className={`w-10 h-10 ${isDarkMode ? 'text-gray-400' : 'text-gray-500'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                       </svg>
                     </div>
-                    <h3 className="text-xl font-semibold text-white mb-3 font-sans">No projects found</h3>
-                    <p className="text-gray-300 mb-6 max-w-md mx-auto font-sans">
+                    <h3 className={`text-xl font-semibold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-3 font-sans`}>No projects found</h3>
+                    <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'} mb-6 max-w-md mx-auto font-sans`}>
                       Try adjusting your filters or search terms to find projects that match your criteria.
                     </p>
                     <button 
@@ -274,7 +276,7 @@ const Layout: React.FC<LayoutProps> = ({ projects, isLoading = false }) => {
                         status: [],
                         searchTerm: ''
                       })}
-                      className="px-6 py-2 bg-mint-500 text-dark-900 rounded-lg hover:bg-mint-600 transition-colors font-sans font-semibold"
+                      className={`px-6 py-2 bg-mint-500 ${isDarkMode ? 'text-dark-900' : 'text-white'} rounded-lg hover:bg-mint-600 transition-colors font-sans font-semibold`}
                     >
                       Clear All Filters
                     </button>
