@@ -176,3 +176,5 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 - UK Government for data sources
 - Tailwind CSS for styling framework
 - React community for excellent tooling
+
+  Testing CodeRabbit integration!
